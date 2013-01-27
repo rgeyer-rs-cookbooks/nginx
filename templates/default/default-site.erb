@@ -1,7 +1,7 @@
 server {
   listen   80;
   server_name  <%= node[:hostname] %>;
-  allow <%= node.ec2.local_ipv4 %>;
+  allow <%= node["cloud"]["private_ips"][0] %>;
   deny all;
 
   access_log  <%= node[:nginx][:log_dir] %>/<%= node[:hostname] %>.access.log;
